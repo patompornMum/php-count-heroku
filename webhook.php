@@ -53,24 +53,40 @@
 ?>
 
 <?php
-	$GET_EMAIL = '○○';
+	// $GET_EMAIL = '○○';
 
+	// $json_string = file_get_contents('php://input');
+	// $JSON = json_decode($json_string, true);
+
+	// $eventName = $JSON['key'] ?? null;
+
+	// // $Event_Name = "{$JSON['key']}";
+	// // $Complete_Au = "{$JSON['data']['authorized']}"; # trueなら1が入る
+	// // $Complete_or = "{$JSON['data']['paid']}"; # trueなら1が入る
+
+ // 	date_default_timezone_set("Asia/Bangkok");
+
+	// $myfile = fopen("webhook.txt", "w") or die("Unable to open file!");
+
+	// fwrite($myfile, $eventName ?? null);
+	// fwrite($myfile, "\n");
+
+	// $dateTime = date('Y-m-d H:i:s');
+	// fwrite($myfile, $dateTime."\n");
+
+	// fclose($myfile);
+?>
+
+<?php 
 	$json_string = file_get_contents('php://input');
-	$JSON = json_decode($json_string, true);
-
-	$Event_Name = "{$JSON['key']}";
-	$Complete_Au = "{$JSON['data']['authorized']}"; # trueなら1が入る
-	$Complete_or = "{$JSON['data']['paid']}"; # trueなら1が入る
-
- 	date_default_timezone_set("Asia/Bangkok");
+	date_default_timezone_set("Asia/Bangkok");
 
 	$myfile = fopen("webhook.txt", "w") or die("Unable to open file!");
 
-	fwrite($myfile, $Event_Name ?? "fail");
-	fwrite($myfile, "\n");
-
 	$dateTime = date('Y-m-d H:i:s');
 	fwrite($myfile, $dateTime."\n");
+
+	fwrite($myfile, $json_string ?? null);
 
 	fclose($myfile);
 ?>
