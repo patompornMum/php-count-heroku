@@ -14,11 +14,10 @@
 
 	$myfile = fopen("webhook.txt", "w") or die("Unable to open file!");
 
-	// $data = $_REQUEST['charge']['create'] ?? null;
-	// $data = json_encode($data) ?? null;
+	$data = $_REQUEST ?? null;
+	$data = json_encode($data) ?? null;
 
-
-	$data = gettype($_REQUEST);
+	// $data = gettype($_REQUEST);
 	fwrite($myfile, $data."\n");
 
 	$dateTime = date('Y-m-d H:i:s');
