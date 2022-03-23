@@ -20,6 +20,10 @@
 	// // $data = gettype($_REQUEST);
 	// fwrite($myfile, $data."\n");
 
+	$method = $_SERVER['REQUEST_METHOD'];
+	fwrite($myfile, "method : ".$method);
+	fwrite($myfile, "\n");
+
 	fwrite($myfile, var_dump($_REQUEST,true));
 	fwrite($myfile, "\n");
 
