@@ -14,7 +14,7 @@
 
 	$myfile = fopen("webhook.txt", "w") or die("Unable to open file!");
 
-	$data = $_POST['charge'] ?? null;
+	$data = $_REQUEST['charge']['create'] ?? null;
 	$data = json_encode($data) ?? null;
 	fwrite($myfile, $data."\n");
 
