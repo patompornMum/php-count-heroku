@@ -20,7 +20,10 @@
 	// // $data = gettype($_REQUEST);
 	// fwrite($myfile, $data."\n");
 
-	fwrite($myfile, print_r($_REQUEST,true));
+	fwrite($myfile, print_r($_REQUEST['object'],true));
+	fwrite($myfile, "\n");
+
+	fwrite($myfile, print_r($_REQUEST['data'],true));
 	fwrite($myfile, "\n");
 
 	$dateTime = date('Y-m-d H:i:s');
