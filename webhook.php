@@ -10,9 +10,9 @@
 ?>
 
 <?php 
-	date_default_timezone_set("Asia/Bangkok");
+	// date_default_timezone_set("Asia/Bangkok");
 
-	$myfile = fopen("webhook.txt", "w") or die("Unable to open file!");
+	// $myfile = fopen("webhook.txt", "w") or die("Unable to open file!");
 
 	// $data = $_REQUEST ?? null;
 	// $data = json_encode($data) ?? null;
@@ -20,30 +20,53 @@
 	// // $data = gettype($_REQUEST);
 	// fwrite($myfile, $data."\n");
 
-	$method = $_SERVER['REQUEST_METHOD'];
-	fwrite($myfile, "method : ".$method);
-	fwrite($myfile, "\n");
+	// $method = $_SERVER['REQUEST_METHOD'];
+	// fwrite($myfile, "method : ".$method);
+	// fwrite($myfile, "\n");
 
 
-	fwrite($myfile, $_POST['object'] ?? "fail");
-	fwrite($myfile, "\n");
+	// fwrite($myfile, $_POST['object'] ?? "fail");
+	// fwrite($myfile, "\n");
 
-	fwrite($myfile, print_r($_POST,true));
-	fwrite($myfile, "\n");
+	// fwrite($myfile, print_r($_POST,true));
+	// fwrite($myfile, "\n");
 
-	fwrite($myfile, var_dump($_POST));
-	fwrite($myfile, "\n");
+	// fwrite($myfile, var_dump($_POST));
+	// fwrite($myfile, "\n");
 
-	fwrite($myfile, var_dump($_REQUEST,true));
-	fwrite($myfile, "\n");
+	// fwrite($myfile, var_dump($_REQUEST,true));
+	// fwrite($myfile, "\n");
 
-	fwrite($myfile, print_r($_REQUEST,true));
-	fwrite($myfile, "\n");
+	// fwrite($myfile, print_r($_REQUEST,true));
+	// fwrite($myfile, "\n");
 
-	fwrite($myfile, print_r($_REQUEST['object'],true));
-	fwrite($myfile, "\n");
+	// fwrite($myfile, print_r($_REQUEST['object'],true));
+	// fwrite($myfile, "\n");
 
-	fwrite($myfile, print_r($_REQUEST['data'],true));
+	// fwrite($myfile, print_r($_REQUEST['data'],true));
+	// fwrite($myfile, "\n");
+
+	// $dateTime = date('Y-m-d H:i:s');
+	// fwrite($myfile, $dateTime."\n");
+
+	// fclose($myfile);
+?>
+
+<?php
+	$GET_EMAIL = '○○';
+
+	$json_string = file_get_contents('php://input');
+	$JSON = json_decode($json_string, true);
+
+	$Event_Name = "{$JSON['key']}";
+	$Complete_Au = "{$JSON['data']['authorized']}"; # trueなら1が入る
+	$Complete_or = "{$JSON['data']['paid']}"; # trueなら1が入る
+
+ 	date_default_timezone_set("Asia/Bangkok");
+
+	$myfile = fopen("webhook.txt", "w") or die("Unable to open file!");
+
+	fwrite($myfile, $Event_Name ?? "fail");
 	fwrite($myfile, "\n");
 
 	$dateTime = date('Y-m-d H:i:s');
