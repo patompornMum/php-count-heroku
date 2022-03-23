@@ -24,6 +24,12 @@
 	fwrite($myfile, "method : ".$method);
 	fwrite($myfile, "\n");
 
+	fwrite($myfile, print_r($_POST,true));
+	fwrite($myfile, "\n");
+
+	fwrite($myfile, var_dump($_POST));
+	fwrite($myfile, "\n");
+
 	fwrite($myfile, var_dump($_REQUEST,true));
 	fwrite($myfile, "\n");
 
