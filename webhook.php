@@ -24,6 +24,10 @@
 	fwrite($myfile, "method : ".$method);
 	fwrite($myfile, "\n");
 
+
+	fwrite($myfile, $_POST['object'] ?? "fail");
+	fwrite($myfile, "\n");
+
 	fwrite($myfile, print_r($_POST,true));
 	fwrite($myfile, "\n");
 
